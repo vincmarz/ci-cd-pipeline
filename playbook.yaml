@@ -3,12 +3,12 @@
   - name: Deploy the service
     k8s:
       state: present
-      definition: "{{ lookup('template', 'service.yml') | from_yaml }}"
+      definition: "{{ lookup('template', 'service.yaml') | from_yaml }}"
       validate_certs: no
-      namespace: default
+      namespace: cicddemo
   - name: Deploy the application
     k8s:
       state: present
       validate_certs: no
-      namespace: default
-      definition: "{{ lookup('template', 'deployment.yml') | from_yaml }}"
+      namespace: cicddemo
+      definition: "{{ lookup('template', 'deployment.yaml') | from_yaml }}"
